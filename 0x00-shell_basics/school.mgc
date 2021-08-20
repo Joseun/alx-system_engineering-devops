@@ -1,2 +1,3 @@
-#!/bin/bash
-find . -maxdepth 0 -name "School" -print 
+0 string SCHOOL School data
+!:mime School
+
