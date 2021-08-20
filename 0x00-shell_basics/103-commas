@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -amFh --file-type | sed G
+ls -amp
