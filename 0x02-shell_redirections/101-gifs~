@@ -1,0 +1,2 @@
+#!/bin/bash
+ls -SR1a | find -type f -name *.gif | tr -d '/' | tr -d '.gif' 
