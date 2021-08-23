@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -R1a | find -empty| tr -d '/'
+find . -empty -printf "%f\n"
