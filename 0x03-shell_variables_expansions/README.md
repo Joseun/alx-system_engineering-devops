@@ -1,46 +1,44 @@
-Shell Permission
+Shell Initialization Files, Variables and Expansions
 
-0-iam_betty creates a script that switches the current user to the user betty
+The following are scripts with different functions that manipulate shell environment, variables and functions
 
-1-who_am_i prints the effective username of the current user
+0-alias creates the alias  <Name: ls> with <Value: rm *>
 
-2-groups  prints all the groups the current user is part of.
+1-hello_you prints hello user, where user is the current Linux user.
 
-3-new_owner changes the owner of the file hello to the user betty
+2-path add /action as the last directory the shell looks into when looking ino PATH for a program.
 
-4-empty creates an empty file called hello
+3-paths counts the number of directories in the PATH.
 
-5-execute adds execute permission to the owner of the file hello
+4-global_variables lists environment variables.
 
-6-multiple_permissions adds execute permission to the owner and the group owner, a
-nd read permission to other users, to the file hello
+5-local_variables lists all local variables and environment variables, and functions.
 
-7-everybody adds execution permission to the owner, the group owner and the other
-users, to the file hello
+6-create_local_variable creates the new local variable <Name: BETTY> with <Value: Holberton>
 
-8-James_Bond sets the no permissions for the owner and group owner, and sets other
-users to have all the permissions to the file hello 
+7-create_global_variable creates the new global variable <Name: HOLBERTON> with <Value: Betty>
 
-9-John_Doe sets the full permissions for the owner, read and executable permission
-s to the  group owner, and write and executable permissions to other users  to the file hello
+8-true_knowledge  prints the result of the addition of 128 with the value stored in the environment variable TRUEKNOWLE
+DGE, followed by a new line.
 
-10-mirror_permissions sets the permissions of the file hello the same as olleh.
+9-divide_and_rule  prints the result of  the division of the environment variables POWER and DIVIDE, followed by a new line.
 
-11-directories_permissions creates a script that adds execute permission to all su
-bdirectories of the current directory for the owner, the group owner and all other
-users. Regular files will not be changed.
+10-love_exponent_breath displays the result of exponenting the environment variable BREATH with the environment variable LOVE followed by a new line
 
-12-directory_permissions create a script that creates a directory called my_dir with permissions 751 in the working directory.
+11-binary_to_decimal  converts a number in base 2 stored in the environment variable BINARY from base 2 to base 10 displayed in base 10 followed by a new line.
 
-13-change_group hanges the group owner to school for the file hello
+12-combinations prints all possible combinations from a to z of two lower case letters, except oo, with one combination per line and output is alpha ordered, starting with aa, containing maximum 64 characters
 
-100-change_owner_and_group changes the owner to vincent and the group owner to staff for all the files and directories in the working directory.
+13-print_float prints a number stored in the environment variable NUM with two decimal places, followed by a new line.
 
-101-symbolic_link_permissions changes the owner and the group owner of _hello to vincent and staff respectively.
+100-decimal_to_hexadecimal converts a number in base 10 is stored in the environment variable DECIMAL from base 10 to base 16 displayed in base 16, followed by a new line
 
-102-if_only changes the owner of the file hello to betty only if it is owned by the user guillaume.
+101-rot13 encodes and decodes ASCII text using the rot13 encryption
 
-103-Star_Wars will play the StarWars IV episode in the terminal.
+102-odd prints every other line from the input, starting with the first line.
+
+103-water_and_stir  adds the two numbers stored in the environment variables WATER in base water and STIR in base stir and prints the result be in base behlnort
+
 
 Credits - Google search engine, geeksforgeeks.com, linuxize, ubuntuforums
 
