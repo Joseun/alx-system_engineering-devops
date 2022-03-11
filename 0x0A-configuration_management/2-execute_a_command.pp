@@ -6,6 +6,6 @@ exec {
         onlyif  => 'service killmenow status',
         before  => [
             Class['config'],
-            Service['config'],
+            Service['config']
         ]
 }
