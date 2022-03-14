@@ -3,8 +3,9 @@
   ensure  => present,
   target  => '/etc/ssh/ssh_config',
   options => {
-    'IdentityFile'           => '~/.ssh/school',
-    'PasswordAuthentication' => 'no',
-    'HostName'               => '34.75.95.154'
+    'IdentityFile'             => '~/.ssh/school',
+    'PasswordAuthentication'   => 'no',
+    'PreferredAuthentications' => 'publickey'
+    'HostName'                 => '34.75.95.154'
   }
 }
