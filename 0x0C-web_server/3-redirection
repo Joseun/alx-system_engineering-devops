@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# configures an Nginx server so that localhost/redirect_me is redirecting to another page
-
+# Configures an Nginx server so that localhost/redirect_me is redirecting to another page
 apt-get -y update 
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
