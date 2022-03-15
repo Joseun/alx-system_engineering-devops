@@ -7,9 +7,9 @@ ufw allow 'Nginx HTTP'
 ufw allow 'OpenSSH'
 ufw enable
 service nginx start
-#mkdir /myroot
-#touch /myroot/index.html /myroot/custom_404.html
-echo 'Hello World!' >  /var/www/html/index.html
-echo "Ceci n'est pas une page" >  /var/www/html/custom_404.html
-sed -i 's+location+error_page 404 /custom_404.html\nlocation = /custom_404.html {root /var/www/html;\ninternal;\n' /etc/nginx/sites-available/default
+mkdir /myroot
+touch /myroot/index.html /myroot/custom_404.html
+echo 'Hello World!' > /myroot/index.html
+echo "Ceci n'est pas une page" > /myroot/custom_404.html
+sed -i 's+location+error_page 404 /custom_404.html\nlocation = /custom_404.html {root /myroot;\ninternal;\n' /etc/nginx/sites-available/default
 service nginx restart
