@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# install nginx and change the default web page to Hello World!
+# configures an Nginx server so that localhost/redirect_me is redirecting to another page
 
 apt-get -y update 
 apt-get -y install nginx
@@ -10,5 +10,5 @@ service nginx start
 mkdir /myroot
 touch /myroot/index.html
 echo 'Hello World!' > /myroot/index.html
-sed -i 's+root /var/www/html+root /myroot' /etc/nginx/sites-available/default
+sed -i '/listen 80 default_server;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
 service nginx restart
