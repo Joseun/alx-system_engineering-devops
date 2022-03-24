@@ -6,8 +6,8 @@ apt-get -y install --no-install-recommends software-properties-common
 add-apt-repository ppa:vbernat/haproxy-2.5
 apt-get -y install haproxy=2.5.\*
 sed -i '/errorfile 504/s/$/\n\tlisten joseun/' /etc/haproxy/haproxy.cfg
-sed -i '/listen joseun/s/$/\n\tbind :80/' /etc/haproxy/haproxy.cfg
-sed -i '/bind :80/s/$/\n\tmode http/' /etc/haproxy/haproxy.cfg
+sed -i '/listen joseun/s/$/\n\tbind *:80/' /etc/haproxy/haproxy.cfg
+sed -i '/bind *:80/s/$/\n\tmode http/' /etc/haproxy/haproxy.cfg
 sed -i '/mode http/s/$/\n\tbalance roundrobin/' /etc/haproxy/haproxy.cfg
 sed -i '/balance roundrobin/s/$/\n\toption httpclose/' /etc/haproxy/haproxy.cfg
 sed -i '/option httpclose/s/$/\n\toption forwardfor/' /etc/haproxy/haproxy.cfg
