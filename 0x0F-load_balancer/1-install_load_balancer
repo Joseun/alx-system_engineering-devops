@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Install and configure HAproxy on your lb-01 server
+
+apt-get -y update 
+apt-get -y install --no-install-recommends software-properties-common
+add-apt-repository ppa:vbernat/haproxy-2.5
+apt-get -y install haproxy=2.5.\*
+sed -i '/errorfile 504/s/$/\n\tlisten joseun/' /etc/haproxy/haproxy.cfg
+sed -i '/listen joseun/s/$/\n\tbind :80/' /etc/haproxy/haproxy.cfg
+sed -i '/bind :80/s/$/\n\tmode http/' /etc/haproxy/haproxy.cfg
+sed -i '/mode http/s/$/\n\tbalance roundrobin/' /etc/haproxy/haproxy.cfg
+sed -i '/balance roundrobin/s/$/\n\toption httpclose/' /etc/haproxy/haproxy.cfg
+sed -i '/option httpclose/s/$/\n\toption forwardfor/' /etc/haproxy/haproxy.cfg
+sed -i '/mode http/s/$/\n\tserver 1305-web-01 3.236.213.10:80 check/' /etc/haproxy/haproxy.cfg
+sed -i '/server 1305-web-01 3.236.213.10:80 check/s/$/\n\tserver 1305-web-02 3.93.74.186:80 check/' /etc/haproxy/haproxy.cfg
+sed -i '/#EXTRAOPTS="-de -m 16"/s/$/ ENABLED=1/' /etc/default/haproxy
+service haproxy start
