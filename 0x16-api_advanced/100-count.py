@@ -42,9 +42,9 @@ def count_words(subreddit, word_list, instances={}, count=0, after=None):
 
         if after is None:
             if len(instances) == 0:
-                return
+                return (None)
             instances = sorted(instances.items(), key=lambda kv: (-kv[1], kv[0]))
             [print("{}: {}".format(k, v)) for k, v in instances]
         else:
             return (count_words(subreddit, word_list, instances, count, after))
-    return
+    return (None)
