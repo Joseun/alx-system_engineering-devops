@@ -10,6 +10,7 @@ def count_words(subreddit, word_list, instances={}, count=0, after=None):
     Args:
         subreddit: subreddit name
         word_list: a list containing the keywords of all hot articles titles
+        instances: a dictionary containing the keywords and their frequency
         count: counter to change prototype
         after: to validate subreddit
 
