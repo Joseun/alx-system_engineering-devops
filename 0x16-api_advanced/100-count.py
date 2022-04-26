@@ -15,7 +15,8 @@ def count_words(subreddit, word_list, instances={}, count=0, after=None):
         after: to validate subreddit
 
     Returns:
-        returns a list containing the titles of all hot articles
+        returns a dictionary containing the frequency of certain
+        keywords in the hot articles
     """
     import requests
 
@@ -39,10 +40,11 @@ def count_words(subreddit, word_list, instances={}, count=0, after=None):
                     else:
                         instances[word.lower()] += times
 
-    if after is None:
-        if len(instances) == 0:
-            return
-        instances = sorted(instances.items(), key=lambda kv: (-kv[1], kv[0]))
-        [print("{}: {}".format(k, v)) for k, v in instances]
-    else:
-        return (count_words(subreddit, word_list, instances, count, after))
+        if after is None:
+            if len(instances) == 0:
+                return
+            instances = sorted(instances.items(), key=lambda kv: (-kv[1], kv[0]))
+            [print("{}: {}".format(k, v)) for k, v in instances]
+        else:
+            return (count_words(subreddit, word_list, instances, count, after))
+    return
