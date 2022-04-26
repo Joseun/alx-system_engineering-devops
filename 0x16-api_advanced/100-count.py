@@ -31,7 +31,8 @@ def count_words(subreddit, word_list, instances={}, count=0, after=None):
             hot_list = c.get("data").get("title").lower().split()
             for word in word_list:
                 if word.lower() in hot_list:
-                    times = len([article for article in hot_list if article == word.lower()])
+                    times = len([article for article in hot_list if
+                                article == word.lower()])
                     if instances.get(word.lower()) is None:
                         instances[word.lower()] = times
                     else:

@@ -4,10 +4,10 @@ import requests
 
 
 def number_of_subscribers(subreddit):
-    """  
+    """
     Args:
         subreddit: subreddit name
-    
+
     Returns:
         number of subscribers to the subreddit,
         or 0 if subreddit requested is invalid
