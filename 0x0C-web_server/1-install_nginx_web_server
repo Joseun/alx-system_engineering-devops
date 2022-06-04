@@ -10,5 +10,5 @@ service nginx start
 mkdir /myroot
 touch /myroot/index.html
 echo 'Hello World!' > /myroot/index.html
-sed -i 's+root /var/www/html+root /myroot' /etc/nginx/sites-available/default
+sed -i 's+root /var/www/html+root /myroot+' /etc/nginx/sites-available/default
 service nginx restart
