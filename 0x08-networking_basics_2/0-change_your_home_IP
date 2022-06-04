@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 # Script that configures an Ubuntu server
 
-rm ~/hosts.new
 cp /etc/hosts ~/hosts.new
 sed -i 's/127.0.0.1 localhost/127.0.0.2 localhost\n8.8.8.8 facebook.com/' ~/hosts.new
-cat ~/hosts.new
 cp -f ~/hosts.new /etc/hosts
