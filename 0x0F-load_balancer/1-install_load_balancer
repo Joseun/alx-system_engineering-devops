@@ -14,4 +14,4 @@ sed -i '/balance roundrobin/a \n\toption httpclose/' /etc/haproxy/haproxy.cfg
 sed -i '/option httpclose/a \n\toption forwardfor/' /etc/haproxy/haproxy.cfg
 sed -i '/server 1305-web-01 3.236.213.10:80 check/a \n\tserver 1305-web-02 3.93.74.186:80 check/' /etc/haproxy/haproxy.cfg
 sed -i '/#EXTRAOPTS="-de -m 16"/a  ENABLED=1/' /etc/default/haproxy
-service haproxy restart
+service haproxy start
