@@ -9,9 +9,9 @@ mkdir myroot
 touch myroot/index.html myroot/custom_404.html
 echo 'Hello World!' > myroot/index.html
 echo "Ceci n'est pas une page" > myroot/custom_404.html
-sed -i 's+root /var/www/html+root /myroot+' /etc/nginx/sites-available/default
+sed -i  's+root /var/www/html+root /myroot+1' /etc/nginx/sites-available/default
 sed -i '/listen 80 default_server;/a\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
-sed -i 's/server_name _;/server_name .joseun.tech;/' /etc/nginx/sites-available/default
-sed -i 's+location / {+error_page 404 /custom_404.html\n\tlocation = /custom_404.html {\n\troot /myroot;\n\tinternal;\n}+' /etc/nginx/sites-available/default
-sed -i "/listen 80 default_server;/s/$/\n\tadd_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
+sed -i "/listen 80 default_server;/a\\\tadd_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
+sed -i 's/server_name _;/server_name joseun.tech;/' /etc/nginx/sites-available/default
+sed -i '/server_name joseun.tech;/a\\n\t  error_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\troot /myroot;\n\tinternal;\n\t}' /etc/nginx/sites-available/default
 service nginx restart
