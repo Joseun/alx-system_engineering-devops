@@ -4,6 +4,7 @@ apt-get -y update
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
 ufw allow 'OpenSSH'
+ufw --force enable
 service nginx start
 mkdir myroot
 touch myroot/index.html myroot/custom_404.html
