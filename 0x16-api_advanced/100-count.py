@@ -21,16 +21,18 @@ def count_words(subreddit, word_list, instances={}, count=0, after=None):
     import requests
 
     headers = {'User-Agent': 'User-Agent'}
-    parameters = {'after': after}
+    parameters = {'after': after,
+                  'count': count   
+    }
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    response = requests.get(url, headers=headers, allow_redirects=False,
-                            params=parameters)
+    response = requests.get(url, headers=headers, params=parameters,
+                            allow_redirects=False)
     if response.status_code == 200:
         results = response.json().get("data")
         after = results.get("after")
         count += results.get("dist")
-        for c in results.get("children"):
-            hot_list = c.get("data").get("title").lower().split()
+        for child in results.get("children"):
+            hot_list = child.get("data").get("title").lower().split()
             for word in word_list:
                 if word.lower() in hot_list:
                     times = len([article for article in hot_list if
@@ -42,10 +44,10 @@ def count_words(subreddit, word_list, instances={}, count=0, after=None):
 
         if after is None:
             if len(instances) == 0:
-                return (None)
+                return
             instances = sorted(instances.items(),
                                key=lambda kv: (-kv[1], kv[0]))
             [print("{}: {}".format(k, v)) for k, v in instances]
         else:
-            return (count_words(subreddit, word_list, instances, count, after))
-    return (None)
+            count_words(subreddit, word_list, instances, count, after)
+    return
